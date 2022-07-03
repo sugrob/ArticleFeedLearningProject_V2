@@ -6,21 +6,30 @@
 <head>
     <META http-equiv="Content-Type" content="text/html; charset=utf-8">
     <META http-equiv="Content-Language" content="ru">
-    <title>Feed::edit</title>
+    <link href="${pageContext.request.contextPath}/css/common.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/form.css" rel="stylesheet"/>
+    <title>Feed::create</title>
 </head>
 <body>
-<h1>Feed::edit</h1>
-<form:form method="post" action="${pageContext.request.contextPath}/save" modelAttribute="article">
-    <form:hidden  path="id" />
-    <label>Title:</label>
-    <div><form:input path="title" /></div>
-    <div><form:errors path="title" cssClass="error" /></div>
+    <div class="content">
+        <h1>Feed::create</h1>
+        <form:form method="post" action="${pageContext.request.contextPath}/save" modelAttribute="article">
+            <form:hidden  path="id" />
 
-    <label>Content:</label>
-    <div><form:textarea path="content" /></div>
-    <div><form:errors path="content" cssClass="error" /></div>
+            <div class="field">
+                <label>Title:</label>
+                <form:input path="title" />
+                <form:errors path="title" cssClass="error" />
+            </div>
 
-    <input type="submit" value="Add new" />
-</form:form>
+            <div class="field">
+                <label>Content:</label>
+                <form:textarea path="content" />
+               <form:errors path="content" cssClass="error" />
+            </div>
+
+            <input type="submit" value="Add new" />
+        </form:form>
+    </div>
 </body>
 </html>
