@@ -28,7 +28,7 @@ public class ArticlesFeedController {
     @Autowired
     private ArticleService articleService;
 
-    private static final int FEED_PAGE_LIMIT = 5;
+    private static final int FEED_PAGE_LIMIT = 3;
 
     @RequestMapping({"/feed/{page}", "/feed"})
     public String viewFeed(@PathVariable Optional<Integer> page, Model model) {
@@ -48,6 +48,7 @@ public class ArticlesFeedController {
 
         model.addAttribute("page", currentPage);
         model.addAttribute("totalPages", feedPage.getTotalPages());
+        model.addAttribute("FEED_PAGE_LIMIT", FEED_PAGE_LIMIT);
         model.addAttribute("list", feedPage.getContent());
 
         return "feed";

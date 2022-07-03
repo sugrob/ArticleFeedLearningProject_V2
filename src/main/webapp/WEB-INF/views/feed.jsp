@@ -12,6 +12,7 @@
 <body>
     <div id="feed" class="content">
         <h1>Feed::view</h1>
+        <div class="hint">*HINT: There are ${FEED_PAGE_LIMIT} items per page, so... you must add at least ${FEED_PAGE_LIMIT+1} items to see pagination :-)</div>
         <a href="${pageContext.request.contextPath}/create">Add new one</a>
 
         <c:forEach var="article" items="${list}">

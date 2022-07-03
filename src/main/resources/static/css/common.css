@@ -17,3 +17,10 @@ html, body {
     padding: 20px;
     background: #FFFFFF;
 }
+
+.hint {
+    margin: 10px 0 10px 0;
+    background: darkgray;
+    padding: 10px;
+    border-radius: 5px;
+}
