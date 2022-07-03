@@ -1,0 +1,15 @@
+label {
+    display: block;
+}
+
+.field input, .field textarea {
+    width: 100%;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+}
