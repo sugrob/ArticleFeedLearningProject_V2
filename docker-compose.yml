@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  pgsql:
+    build:
+      dockerfile: ./docker/images/postgresql/Dockerfile
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=articles_feed
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=dbpassword
+#    volumes:
+#       - ./docker/data/postgresql/dbdata:/var/lib/postgresql/data
