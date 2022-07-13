@@ -15,9 +15,4 @@ public class ArticleFeedApplication
     public static void main(String[] args) {
         SpringApplication.run(ArticleFeedApplication.class, args);
     }
-
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//        return application.sources(ArticleFeedApplication.class);
-//    }
 }

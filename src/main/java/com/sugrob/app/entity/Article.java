@@ -1,17 +1,10 @@
 package com.sugrob.app.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Access;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.PrePersist;
-import javax.persistence.GenerationType;
-import javax.persistence.AccessType;
 import java.sql.Timestamp;
 import java.time.Instant;
 
@@ -21,7 +14,8 @@ import java.time.Instant;
 public class Article {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "article_sec")
+    @SequenceGenerator(name="article_sec", sequenceName="article_sec_id", allocationSize=1)
     private Long id;
 
     @Column(name = "created_time", nullable = false)
