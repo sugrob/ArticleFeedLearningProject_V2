@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
-import java.time.Instant;
 
 @Entity(name = "Article")
 @Table(name = "article")
