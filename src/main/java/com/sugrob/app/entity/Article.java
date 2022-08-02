@@ -1,7 +1,6 @@
 package com.sugrob.app.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;

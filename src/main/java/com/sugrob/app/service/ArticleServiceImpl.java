@@ -2,11 +2,10 @@ package com.sugrob.app.service;
 
 import com.sugrob.app.entity.Article;
 import com.sugrob.app.repository.ArticleRepository;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-
-import java.util.Optional;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -15,15 +14,14 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleRepository articleRepository;
 
     @Override
-    public void update(Article object) {
-        Assert.notNull(object.getId(), "Seems object still wasn't stored");
+    public void update(Article article) {
+        Assert.notNull(article.getId(), "Id is null. Seems object still wasn't stored");
 
-        Optional<Article> storedObject = articleRepository.findById(object.getId());
+        Article foundArticle = articleRepository.findById(article.getId()).orElseThrow(() ->
+                new ObjectNotFoundException(article.getId(), "Article"));
 
-        Assert.notNull(storedObject, "Unable to found object by id:"+object.getId());
+        article.setCreatedTime(foundArticle.getCreatedTime());
 
-        object.setCreatedTime(storedObject.get().getCreatedTime());
-
-        articleRepository.save(object);
+        articleRepository.save(article);
     }
 }

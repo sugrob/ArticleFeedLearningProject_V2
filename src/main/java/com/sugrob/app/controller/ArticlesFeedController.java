@@ -29,7 +29,7 @@ public class ArticlesFeedController {
     @Autowired
     private ArticleService articleService;
 
-    private static final int FEED_PAGE_LIMIT = 3;
+    public static final int FEED_PAGE_LIMIT = 3;
 
     @RequestMapping({"/feed/{page}", "/feed"})
     public String viewFeed(@PathVariable Optional<Integer> page, Model model) {
